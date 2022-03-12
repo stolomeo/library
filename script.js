@@ -18,4 +18,24 @@ function Book(title, author, pages, read) {
   this.read = read;
 }
 
-function addBooktoLibrary() {}
+Book.prototype.retrieveValues = function () {};
+
+function addBooktoLibrary(title, author, pages, read) {
+  const newBook = new Book(title, author, pages, read);
+  myLibrary.push(newBook);
+}
+
+function formSubmit(event) {
+  event.preventDefault();
+  addBooktoLibrary(title.value, author.value, pages.value, read.checked);
+  console.log(myLibrary);
+  formClear();
+}
+
+const submitBtn = document.querySelector("button");
+submitBtn.addEventListener("click", formSubmit);
+
+function formClear() {
+  (title.value = ""), (author.value = ""), (pages.value = "");
+  read.checked = false;
+}
