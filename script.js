@@ -1,15 +1,4 @@
-/*
-function addBooktoLibrary
-push title, author, pages, and read value into myLibrary[];
-
-function create card
-take each array in myLibrary and create card
-
-submit button
-create card, clear form, prevent refresh
-*/
 const library = document.querySelector(".library-cards");
-const card = document.querySelector(".card");
 let myLibrary = [];
 
 function Book(title, author, pages, read) {
@@ -57,12 +46,18 @@ function displayBook(book) {
   pages.innerText = `Pages: ${book.pages}`;
   div.appendChild(pages);
 
-  const read = document.createElement("p");
-  if (book.read) {
-    read.innerText = "Read";
-  } else {
-    read.innerText = "Unread";
-  }
+  const read = document.createElement("label");
+  read.classList.add("switch");
+
+  const readInput = document.createElement("input");
+  readInput.type = "checkbox";
+  readInput.checked = book.read ? true : false;
+  read.appendChild(readInput);
+
+  const span = document.createElement("span");
+  span.classList.add("slider");
+  read.appendChild(span);
+
   div.appendChild(read);
 
   const deleteBtn = document.createElement("button");
