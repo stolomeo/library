@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Merriweather:ital@1&family=Montserrat:ital,wght@1,600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Merriweather:ital@1&family=Montserrat:ital,wght@1,600&family=Source+Code+Pro:wght@800&display=swap");
 
 /*
   1. Use a more-intuitive box-sizing model.
@@ -19,7 +19,6 @@
 */
 html,
 body {
-  font-family: "Merriweather", serif;
   font-family: "Montserrat", sans-serif;
   height: 100%;
 }
@@ -71,26 +70,39 @@ h6 {
 #__next {
   isolation: isolate;
 }
-
+/*-----------------------------------------*/
+:root {
+  --grey: #d6d3d1;
+  --red: #ef4444;
+  --purple: #b699ff;
+  --green: #4ade80;
+  --box-shadow: 0px 7px 15px -5px rgb(0 0 0 / 30%);
+}
 body {
   display: grid;
   grid-template-columns: 1fr 5fr;
-  grid-template-rows: 10% 90%;
+  grid-template-rows: 1fr 7fr;
 }
 header {
-  background-color: #dddda2;
+  background-color: #ffffff;
   grid-column: 1/3;
+  box-shadow: var(--box-shadow);
+  z-index: 10;
 }
 h2 {
   font-size: 3rem;
   text-align: center;
+  font-family: "Source Code Pro", monospace;
 }
 
 .sidebar {
-  background-color: rgb(255 153 153);
+  background-color: var(--purple);
   display: flex;
   justify-content: center;
   font-size: 1.3rem;
+  box-shadow: var(--box-shadow);
+  z-index: 5;
+  border-radius: 0.3rem;
 }
 form {
   margin-top: 1rem;
@@ -98,7 +110,7 @@ form {
   flex-direction: column;
 }
 main {
-  background-color: pink;
+  background-color: var(--grey);
 }
 .library-cards {
   display: flex;
@@ -107,21 +119,24 @@ main {
   margin: 1rem;
 }
 .card {
-  background-color: white;
-  border: 1px solid black;
+  background-color: #f9f7ff;
   border-radius: 1rem;
-  width: 250px;
+  width: 300px;
   height: 250px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
+  box-shadow: var(--box-shadow);
+  font-size: 1.2rem;
+  overflow: hidden;
 }
 .switch {
   position: relative;
   display: inline-block;
   width: 60px;
   height: 34px;
+  box-shadow: var(--red);
 }
 .switch input {
   opacity: 0;
@@ -136,7 +151,7 @@ main {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: #ccc;
+  background-color: var(--red);
   -webkit-transition: 0.4s;
   transition: 0.4s;
   border-radius: 34px;
@@ -145,7 +160,6 @@ main {
   position: absolute;
   content: "";
   border-radius: 50%;
-
   height: 26px;
   width: 26px;
   left: 4px;
@@ -154,8 +168,13 @@ main {
   -webkit-transition: 0.4s;
   transition: 0.4s;
 }
+input {
+  border-radius: 0.7rem;
+  padding: 0.4rem;
+  box-shadow: var(--box-shadow);
+}
 input:checked + .slider {
-  background-color: #2196f3;
+  background-color: var(--green);
 }
 input:focus + .slider {
   box-shadow: 0 0 1px #2196f3;
@@ -167,4 +186,21 @@ input:checked + .slider:before {
 }
 button {
   cursor: pointer;
+  background-color: var(--grey);
+  border-radius: 1rem;
+  transition: all 0.2s ease-in-out;
+}
+button:hover {
+  transform: scale(1.1);
+}
+button#submit {
+  width: 180px;
+  align-self: center;
+  padding: 0.3rem;
+}
+button.deleteBtn {
+  padding: 0.3rem;
+}
+label {
+  font-size: 1.7rem;
 }
