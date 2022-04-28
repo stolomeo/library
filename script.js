@@ -19,7 +19,6 @@ function addBooktoLibrary(title, author, pages, read) {
 function formSubmit(event) {
   event.preventDefault();
   addBooktoLibrary(title.value, author.value, pages.value, read.checked);
-  console.log(myLibrary);
   formClear();
 }
 
